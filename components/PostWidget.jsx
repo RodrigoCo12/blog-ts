@@ -2,19 +2,19 @@ import moment from 'moment';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-import { getRecentPosts, getSimilarPost } from '../services';
+import { getRecentPosts, getSimilarPosts } from '../services';
 
 const PostWidget = ({ categories, slug }) => {
     const [relatedPost, setRelatedPost] = useState([]);
     useEffect(() => {
         if (slug) {
-            getSimilarPost(categories, slug).then((result) => setRelatedPost(result));
+            getSimilarPosts(categories, slug).then((result) => setRelatedPost(result));
         } else {
             getRecentPosts().then((result) => setRelatedPost(result));
         }
     }, [slug]);
 
-    console.log(relatedPost);
+    // console.log(relatedPost);
     return (
         <div className="mb-8 w-full rounded-lg bg-white p-8 text-gray-700 shadow-lg">
             <h3 className=" border-b pb-4 text-xl font-semibold ">{slug ? 'Releated Post' : 'Recent Post'}</h3>
