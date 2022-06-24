@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { Author, Categories, Comments, CommentsForm, PostDetail, PostWidget } from '../../components/index';
-import { getPosts, getPostDetails } from '../../services';
+import { getPostDetails, getPosts } from '../../services';
 
+//
 const PostDetails = ({ post }) => {
     // console.log(post);
     return (
