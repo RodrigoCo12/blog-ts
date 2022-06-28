@@ -1,4 +1,5 @@
 import moment from 'moment';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -7,10 +8,12 @@ const PostCard = ({ post }) => {
     return (
         <div className="mb-8 rounded-lg bg-white p-0 pb-12 shadow-lg lg:p-8">
             <div className="relative mb-6 overflow-hidden pb-80 shadow-md">
-                <img
+                <Image
+                    priority="false"
                     src={post.featuredImage.url}
                     alt={post.title}
-                    className="absolute h-80 w-full rounded-t-lg object-cover object-top shadow-lg lg:rounded-lg"
+                    layout="fill"
+                    className="absoluterounded-t-lg h-80 w-full object-cover object-top shadow-lg lg:rounded-lg"
                 />
             </div>
             <h2 className="text-3x1 transaition mb-8 cursor-pointer text-center text-xl font-semibold text-black duration-700 hover:text-pink-600">
@@ -18,9 +21,11 @@ const PostCard = ({ post }) => {
             </h2>
             <div className=" block w-full items-center justify-center text-center lg:flex ">
                 <div className=" mb-4 mr-8 flex w-full items-center justify-center lg:mb-0 lg:w-auto">
-                    <img
+                    <Image
                         src={post.author.photo.url}
                         alt={post.author.name}
+                        height="30px"
+                        width="30px"
                         className="h-8 w-8 rounded-full align-middle"
                     />
                     <p className="ml-2 inline align-middle text-lg text-gray-700">{post.author.name}</p>

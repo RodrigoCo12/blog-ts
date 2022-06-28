@@ -1,18 +1,23 @@
 import moment from 'moment';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 import { getRecentPosts, getSimilarPosts } from '../services';
 
 const PostWidget = ({ categories, slug }) => {
-    const [relatedPost, setRelatedPost] = useState([]);
-    useEffect(() => {
-        if (slug) {
-            getSimilarPosts(categories, slug).then((result) => setRelatedPost(result));
-        } else {
-            getRecentPosts().then((result) => setRelatedPost(result));
-        }
-    }, [slug]);
+    const [relatedPost, setRelatedPosts] = useState([]);
+
+    useEffect(
+        (categories = categories) => {
+            if (slug) {
+                getSimilarPosts(categories, slug).then((result) => setRelatedPosts(result));
+            } else {
+                getRecentPosts().then((result) => setRelatedPosts(result));
+            }
+        },
+        [slug]
+    );
 
     // console.log(relatedPost);
     return (
@@ -21,9 +26,11 @@ const PostWidget = ({ categories, slug }) => {
             {relatedPost.map((post) => (
                 <div key={post.title} className="mb-4 mt-5 flex w-full items-center">
                     <div className="w-16 flex-none">
-                        <img
+                        <Image
                             alt={post.title}
-                            className="h-16 w-16 rounded-full object-cover align-middle"
+                            height="64px"
+                            width="64px"
+                            className="rounded-full object-cover align-middle"
                             src={post.featuredImage.url}
                         />
                     </div>

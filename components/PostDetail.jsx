@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 import moment from 'moment';
 
 const PostDetail = ({ post }) => {
@@ -46,7 +46,7 @@ const PostDetail = ({ post }) => {
                     </h4>
                 );
             case 'image':
-                return <img key={index} alt={obj.title} height={obj.height} width={obj.width} src={obj.src} />;
+                return <Image key={index} alt={obj.title} height={obj.height} width={obj.width} src={obj.src} />;
             default:
                 return modifiedText;
         }
@@ -55,19 +55,23 @@ const PostDetail = ({ post }) => {
     return (
         <>
             <div className="mb-8 rounded-lg bg-white pb-12 shadow-lg lg:p-8">
-                <div className="relative mb-6 overflow-hidden shadow-md">
-                    <img
+                <div className="relative mb-6 overflow-hidden pb-80 shadow-md">
+                    <Image
                         src={post.featuredImage.url}
-                        alt=""
-                        className="h-full w-full rounded-t-lg object-cover  object-top shadow-lg lg:rounded-lg"
+                        alt={post.title}
+                        layout="fill"
+                        className="absoluterounded-t-lg h-80 w-full object-cover object-top shadow-lg lg:rounded-lg"
                     />
                 </div>
+
                 <div className="px-4 lg:px-0">
                     <div className="mb-8 flex w-full items-center">
                         <div className="mr-8 hidden items-center justify-center md:flex lg:mb-0 lg:w-auto">
-                            <img
+                            <Image
+                                width="30px"
+                                height="30px"
                                 alt={post.author.name}
-                                className="h-7 w-7 rounded-full align-middle"
+                                className=" rounded-full align-middle"
                                 src={post.author.photo.url}
                             />
                             <p className="ml-2 inline align-middle text-lg font-medium text-gray-700">
