@@ -4,7 +4,7 @@ import React from 'react'
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text
-    console.log(obj)
+    // console.log(obj)
     if (obj) {
       if (obj.bold) {
         modifiedText = <b key={index}>{text}</b>
