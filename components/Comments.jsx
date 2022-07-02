@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import parse from 'html-react-parser'
 import { getComments } from '../services'
+import { useRouter } from 'next/router'
 
 const Comments = ({ slug }) => {
   const [comment, setComment] = useState([])
+  const router = useRouter()
 
   useEffect(() => {
     getComments(slug).then((result) => setComment(result))
-  }, [])
+  }, [router.asPath])
 
   return (
     <>
