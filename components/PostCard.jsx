@@ -5,15 +5,15 @@ import React from 'react'
 const PostCard = ({ post }) => {
   // console.log(post);
   return (
-    <div className="mb-8 rounded-lg bg-white p-0 pb-12 shadow-lg lg:p-8">
-      <div className="relative mb-6 overflow-hidden pb-80 shadow-md">
+    <div className="mb-8 rounded-lg bg-white p-0 pb-4 shadow-lg lg:p-8 lg:pb-12">
+      <div className="relative mb-2 overflow-hidden pb-60 shadow-md lg:mb-6 lg:pb-80">
         <img
           src={post.featuredImage.url}
           alt={post.title}
-          className="absolute h-80 w-full rounded-t-lg object-cover object-top shadow-lg lg:rounded-lg"
+          className="absolute h-60 w-full rounded-t-lg object-cover object-top shadow-lg lg:h-80 lg:rounded-lg"
         />
       </div>
-      <h2 className="text-3x1 transaition mb-8 cursor-pointer text-center text-xl font-semibold text-black duration-700 hover:text-pink-600">
+      <h2 className="text-3x1 transaition mb-2 cursor-pointer text-center text-xl font-semibold text-black duration-700 hover:text-pink-600 lg:mb-8">
         <Link href={`/post/${post.slug}`}>{post.title}</Link>
       </h2>
       <div className=" block w-full items-center justify-center text-center lg:flex ">
@@ -42,7 +42,7 @@ const PostCard = ({ post }) => {
           <span>{moment(post.createdAt).format('DD MMM, YYYY')}</span>
         </div>
       </div>
-      <p className=" my-8 px-4 text-center text-lg font-normal text-gray-700 lg:px-20">
+      <p className=" my-4 px-4 text-center text-sm font-normal text-gray-700 lg:my-8 lg:px-20 lg:text-lg">
         {post.excerpt}
       </p>
       <div className=" text-center">

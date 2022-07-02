@@ -13,8 +13,8 @@ import { getPostDetails, getPosts } from '../../services'
 const PostDetails = ({ post }) => {
   // console.log(post)
   return (
-    <div className=" container mx-auto">
-      <div className=" grid grid-cols-1 gap-12 lg:grid-cols-12">
+    <div className=" container mx-auto mb-4">
+      <div className="mx-3 grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div className="col-span-1 lg:col-span-8">
           <PostDetail post={post} />
           <Author author={post.author} />

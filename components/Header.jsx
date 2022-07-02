@@ -11,10 +11,10 @@ const Header = () => {
   }, [])
   return (
     <div className="conteiner mx-auto mb-8 px-10">
-      <div className="inline-block w-full border-b border-white py-8">
-        <div className="block md:float-left">
+      <div className="inline-block w-full border-b border-white py-4 lg:py-8 ">
+        <div className="block text-center md:float-left lg:text-left">
           <Link href="/">
-            <span className="cursor-pointer text-4xl font-semibold text-white">
+            <span className=" cursor-pointer text-3xl font-semibold text-white lg:text-4xl">
               Mimir Vatn
             </span>
           </Link>
