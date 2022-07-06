@@ -62,8 +62,10 @@ const CommentsForm = ({ slug }) => {
   }
 
   return (
-    <div className="mb-8 rounded-lg bg-white p-8 pb-12 shadow-lg">
-      <h3 className="mb-8 border-b pb-4 text-xl font-bold">Leave a Reply</h3>
+    <div className="lg:text-md mb-8 rounded-lg bg-white p-4 pb-12 text-sm shadow-lg lg:p-8">
+      <h3 className="mb-4 border-b pb-4 text-xl font-bold lg:mb-8">
+        Leave a Reply
+      </h3>
       <div className="mb-4 grid grid-cols-1 gap-4">
         <textarea
           ref={commentEl}
@@ -105,7 +107,7 @@ const CommentsForm = ({ slug }) => {
       {error && (
         <p className="text-xs text-red-500">All fields are required.</p>
       )}
-      <div className="mt-8">
+      <div className="mt-4 lg:mt-8">
         <button
           type="button"
           className="ease inline-block cursor-pointer rounded-full bg-pink-600 px-8 py-3 text-lg text-white transition duration-500 hover:bg-indigo-900 "

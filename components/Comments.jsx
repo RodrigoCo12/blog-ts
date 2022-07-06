@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import moment from 'moment'
 import parse from 'html-react-parser'
-import { getComments } from '../services'
+import moment from 'moment'
 import { useRouter } from 'next/router'
+import React, { useEffect, useState } from 'react'
+
+import { getComments } from '../services'
 
 const Comments = ({ slug }) => {
   const [comment, setComment] = useState([])
@@ -15,7 +16,7 @@ const Comments = ({ slug }) => {
   return (
     <>
       {comment.length > 0 && (
-        <div className="mb-8 rounded-lg bg-white p-8 pb-12 shadow-lg">
+        <div className="mb-8 rounded-lg bg-white p-4 pb-12 shadow-lg lg:p-8 ">
           <h3 className="mb-8 border-b pb-4 text-xl font-semibold">
             {comment.length} Comments
           </h3>

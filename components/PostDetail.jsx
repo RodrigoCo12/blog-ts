@@ -30,7 +30,7 @@ const PostDetail = ({ post }) => {
         )
       case 'paragraph':
         return (
-          <p key={index} className="mb-8">
+          <p key={index} className="mb-8 text-justify lg:text-left">
             {modifiedText.map((item, i) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
