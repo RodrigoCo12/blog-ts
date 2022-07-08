@@ -11,7 +11,7 @@ const PostDetails = ({ category }) => {
     <div className=" container mx-auto mb-4">
       <div className="mx-3 grid grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-12">
         <div className="col-span-1 lg:col-span-8">
-          <h3 className=" mb-6 rounded-lg bg-white pb-4 pt-4 text-center text-2xl font-semibold shadow-lg  ">
+          <h3 className=" mb-6 rounded-lg bg-white pb-2 pt-2 text-center text-lg font-semibold shadow-lg  ">
             {category.name}
           </h3>
           <div>

@@ -1,56 +1,30 @@
-// import type { NextPage } from 'next'
-import Head from 'next/head'
+import Link from 'next/link'
+// import type { useEffect, useState } from 'next'
+import { useEffect, useState } from 'react'
 
-import { Categories, PostCard, PostWidget } from '../components/index'
-import { getPosts } from '../services'
+import { Categories, Category, PostCard, PostWidget } from '../components/index'
+import { getCategories } from '../services'
 
-const CategoriesPage = (posts) => {
+const CategoriesPage = () => {
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    getCategories().then((newCategories) => setCategories(newCategories))
+  }, [])
+  // console.log(categories)
+
   return (
-    <div className="container mx-auto mb-4  text-white">
-      <div className="mx-3 grid grid-cols-1 gap-1 lg:grid-cols-12 lg:gap-12 "></div>
+    <div className="container mx-auto mb-4 ">
+      <div className="mx-3 grid grid-cols-1 gap-1   lg:grid-cols-12 lg:gap-12 ">
+        <h3 className=" mb-6 rounded-lg bg-white pb-2 pt-2 text-center text-lg font-semibold shadow-lg  ">
+          Categories
+        </h3>
+        {categories.map((category) => (
+          <Category key={category.name} category={category} />
+        ))}
+      </div>
     </div>
   )
 }
 //
 export default CategoriesPage
-
-export async function getStaticProps() {
-  const posts = (await getPosts()) || []
-  return {
-    props: { posts },
-  }
-}
-// const Categories = (posts) => {
-//   return (
-//     <div className="container mx-auto mb-4  text-white">
-//       <Head>
-//         <title>Blog</title>
-//         <link rel="icon" href="/favicon.ico" />
-//       </Head>
-//       <div className="mx-3 grid grid-cols-1 gap-1 lg:grid-cols-12 lg:gap-12 ">
-//         <div className="col-span-1 lg:col-span-8">
-//           {posts.map((post) => (
-//             <PostCard post={post.node} key={post.node.title} />
-//           ))}
-//         </div>
-//         <div className="col-span-1 lg:col-span-4 ">
-//           <div className="mx-6 mb-8 border-t border-white lg:mb-0 lg:border-0 "></div>
-//           <div className="relative top-0 lg:sticky lg:top-8">
-//             {/* in the future, I will change for typescript */}
-//             <PostWidget categories={undefined} slug={undefined} />
-//             <Categories />
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
-// //
-// export default Home
-
-// export async function getStaticProps() {
-//   const posts = (await getPosts()) || []
-//   return {
-//     props: { posts },
-//   }
-// }

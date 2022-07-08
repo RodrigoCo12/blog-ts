@@ -27,10 +27,6 @@ const Categories = () => {
           )}
         </Link>
       ))}
-      {/* {console.log(router.asPath)} */}
-      <Link key="categories" href={`/categories_page`}>
-        <span className=" mb-3 mt-5 block cursor-pointer">Categories</span>
-      </Link>
     </div>
   )
 }

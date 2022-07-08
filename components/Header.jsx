@@ -13,6 +13,17 @@ const Header = () => {
     <div className="conteiner mx-auto mb-8 px-10">
       <div className="inline-block w-full border-b border-white py-4 lg:py-8 ">
         <div className="block text-center md:float-left lg:text-left">
+          <Link href="/categories_page">
+            <svg
+              width="40"
+              height="30"
+              viewBox="0 0 16 13"
+              className=" absolute left-3 lg:hidden"
+              stroke="currentColor"
+            >
+              <path d="M3 3H16V13H0V0H7L9 2H2V11H3V3Z" fill="white" />
+            </svg>
+          </Link>
           <Link href="/">
             <span className=" cursor-pointer text-3xl font-semibold text-white lg:text-4xl">
               Mimir Vatn

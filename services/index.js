@@ -128,6 +128,9 @@ export const getCategories = async () => {
         categoryImage {
           url
         }
+        posts {
+          title
+        }
       }
     }
   `
