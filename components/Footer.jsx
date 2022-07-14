@@ -1,6 +1,7 @@
 import React from 'react'
 import { Header } from './'
 import Logo from '.././public/Logo'
+import Svgs from './Svgs'
 const Footer = () => {
   return (
     <div className=" mb-10 w-full">

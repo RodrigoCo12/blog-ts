@@ -16,7 +16,7 @@ const Categories = () => {
       <h3 className=" border-b pb-4 text-xl font-semibold ">Categories</h3>
       {categories.map((category) => (
         <Link key={category.slug} href={`/categories/${category.slug}`}>
-          {router.asPath.includes(category.slug) ? (
+          {router.asPath === `/categories/${category.slug}` ? (
             <span className="mb-3 mt-5 block font-semibold text-pink-500">
               {category.name}
             </span>
