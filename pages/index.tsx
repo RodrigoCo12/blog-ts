@@ -5,7 +5,7 @@ import { getPosts } from '../services'
 
 const Home: NextPage = ({ posts }: any) => {
   return (
-    <div className="container mx-auto mb-4  text-white">
+    <div className="container mx-auto mb-4 text-white">
       <Head>
         <title>Blog</title>
         <link rel="icon" href="/favicon.ico" />
