@@ -22,7 +22,7 @@ const PostDetails = ({ category }) => {
         </div>
         <div className="col-span-1 lg:col-span-4 ">
           <div className="mx-6 mb-8 border-t border-white lg:mb-0 lg:border-0 "></div>
-          <div className="relative top-0 lg:sticky lg:top-8">
+          <div className="relative top-0 lg:sticky ">
             {/* in the future, I will change for typescript */}
             <PostWidget categories={undefined} slug={undefined} />
             <Categories />

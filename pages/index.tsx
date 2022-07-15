@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { PostCard, PostWidget, Categories } from '../components/index'
 import { getPosts } from '../services'
-
+import Svgs from '../components/Svgs'
 const Home: NextPage = ({ posts }: any) => {
   return (
     <div className="container mx-auto mb-4 text-white">
@@ -18,7 +18,7 @@ const Home: NextPage = ({ posts }: any) => {
         </div>
         <div className="col-span-1 lg:col-span-4 ">
           <div className="mx-6 mb-8 border-t border-white lg:mb-0 lg:border-0 "></div>
-          <div className="relative top-0 lg:sticky lg:top-8">
+          <div className="relative top-0 lg:sticky ">
             {/* in the future, I will change for typescript */}
             <PostWidget categories={undefined} slug={undefined} />
             <Categories />

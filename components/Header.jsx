@@ -10,7 +10,7 @@ const Header = () => {
     getCategories().then((newCategories) => setCategories(newCategories))
   }, [])
   return (
-    <div className="conteiner mb-8 h-20 w-full bg-primary shadow-lg shadow-teal-800">
+    <div className="conteiner z-20 h-20 w-full  bg-primary shadow-lg shadow-teal-800">
       <div className=" j m-auto grid h-full max-w-7xl grid-cols-3 items-center">
         <div className=" pl-8 text-center md:float-left lg:text-left">
           <Link href="/">
