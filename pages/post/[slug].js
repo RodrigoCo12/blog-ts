@@ -1,7 +1,5 @@
 import React from 'react'
 
-//////////////////////////////////////////////////////////
-// import { Author, Categories, Comments, CommentsForm, PostDetail, PostWidget } from '../../components/index'
 import {
   Author,
   Categories,
@@ -12,11 +10,9 @@ import {
 } from '../../components/index'
 import { getPostDetails, getPosts } from '../../services'
 
-const PostDetails = ({ post, paths }) => {
-  // console.log(post)
-
+const PostDetails = ({ post }) => {
   return (
-    <div className=" container mx-auto mb-4">
+    <div className=" container mx-auto mb-4 max-w-screen-xl">
       <div className="mx-3 grid grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-12">
         <div className="col-span-1 lg:col-span-8">
           <PostDetail post={post} />
@@ -42,7 +38,7 @@ export default PostDetails
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug)
-  // console.log(params)
+
   return {
     props: {
       post: data,
@@ -52,7 +48,6 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const posts = await getPosts()
-  // console.log(posts)
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: false,

@@ -8,7 +8,7 @@ const PostDetails = ({ category }) => {
   // console.log(category)
 
   return (
-    <div className=" container mx-auto mb-4">
+    <div className="  container mx-auto mb-4 max-w-screen-xl">
       <div className=" mx-3 grid grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-12">
         <div className="col-span-8 grid grid-cols-1 lg:grid-cols-2 lg:gap-8">
           <div className="top-24 col-span-1 -mb-8 grid h-8 w-full grid-cols-2 px-4 lg:col-span-2">
@@ -67,7 +67,6 @@ export default PostDetails
 
 export async function getStaticProps({ params }) {
   const data = await getCategory(params.slug)
-  // console.log(data)
   return {
     props: {
       category: data,
@@ -77,7 +76,6 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const categories = await getCategories()
-  // console.log(categories)
   return {
     paths: categories.map(({ slug }) => ({ params: { slug } })),
     fallback: false,

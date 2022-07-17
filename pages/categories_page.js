@@ -14,7 +14,7 @@ const CategoriesPage = () => {
   // console.log(categories)
 
   return (
-    <div className="container mx-auto mb-4 ">
+    <div className="container  mx-auto mb-4 max-w-screen-xl ">
       <div className="mx-3 grid grid-cols-1 gap-1 lg:grid-cols-12 lg:gap-8 ">
         <div className="top-24 col-span-1 -mb-8 grid h-8 w-full grid-cols-2 px-4 lg:col-span-12">
           <Svgs

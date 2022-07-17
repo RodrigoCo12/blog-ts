@@ -19,8 +19,6 @@ export default async function comments(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  // console.log({ graphcmsToken })
-
   const graphQLClient = new GraphQLClient(graphqlAPI!, {
     headers: {
       authorization: `Bearer ${graphcmsToken}`,
@@ -50,14 +48,5 @@ export default async function comments(
     const result = await graphQLClient.request(query, req.body)
 
     return res.status(200).send(result)
-  } catch (error) {
-    // return res.status(500).send(error)
-  }
-
-  // const result = await graphQLClient.request(query, {
-  //   name: req.body.name,
-  //   email: req.body.email,
-  //   comment: req.body.comment,
-  //   slug: req.body.slug,
-  // })
+  } catch (error) {}
 }

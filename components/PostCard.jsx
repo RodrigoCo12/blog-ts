@@ -12,7 +12,7 @@ const PostCard = ({ post }) => {
         {post.categories.map((category, index) =>
           index < 2 ? (
             useRouter().asPath === `/categories/${category.slug}` ? (
-              <p className="transaition text-primary ">
+              <p key={index} className="transaition text-primary ">
                 {index === 0 ? '' : ', '}
                 {category.name}
               </p>
