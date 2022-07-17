@@ -6,18 +6,18 @@ const Category = ({ category }) => {
   //   console.log(category)
   return (
     <Link key={category.slug} href={`/categories/${category.slug}`}>
-      <div className="mb-8 rounded-lg bg-white p-0 pt-4 text-center font-semibold shadow-lg lg:p-8 lg:pb-12">
-        <h3 className=" mb-4 text-lg ">{category.name}</h3>
-        <div className="relative mx-auto mb-2 w-4/5 overflow-hidden pb-48 shadow-md lg:mb-6 lg:pb-80">
+      <div className="mb-8 cursor-pointer rounded-lg bg-white p-0 py-4 pt-4 text-center text-2xl font-semibold shadow-lg shadow-teal-900 duration-300 hover:translate-y-1  ">
+        <h3 className=" mb-4 ">{category.name}</h3>
+        <div className="relative mb-2  overflow-hidden pb-48 shadow-md lg:mb-6 lg:pb-80">
           <img
             src={category.categoryImage.url}
             alt={category.name}
-            className="absolute h-48 w-full rounded-t-lg object-cover  shadow-lg lg:h-80 lg:rounded-lg"
+            className="absolute h-48 w-full object-cover lg:h-80 "
           />
         </div>
         <p className="my-4 ">
           Posts:
-          <span className="text-pink-600"> {category.posts.length}</span>
+          <span className="text-primary"> {category.posts.length}</span>
         </p>
       </div>
     </Link>

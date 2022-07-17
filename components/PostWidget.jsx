@@ -31,13 +31,13 @@ const PostWidget = ({ categories, slug }) => {
           filter={undefined}
         />
       </div>
-      <div className="  w-full shadow-lg  shadow-teal-800">
-        <div className=" rounded-b-lg  bg-primary p-4 text-white  shadow-lg lg:p-5 lg:px-8">
+      <div className=" relative mb-10 w-full shadow-lg  shadow-teal-800 lg:mb-0">
+        <div className="   bg-primary p-4 text-white  shadow-lg lg:p-5 lg:px-8">
           <h3 className=" text-center text-xl font-semibold lg:text-left ">
             {slug ? 'Releated Post' : 'Recent Post'}
           </h3>
         </div>
-        <div className=" rounded-b-lg bg-white p-4 py-2  text-gray-700 shadow-lg lg:px-8">
+        <div className="  bg-white p-4 py-2  text-gray-700 shadow-lg lg:px-8">
           {relatedPost.map((post) => (
             <div
               key={post.title}

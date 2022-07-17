@@ -10,33 +10,36 @@ const Header = () => {
     getCategories().then((newCategories) => setCategories(newCategories))
   }, [])
   return (
-    <div className="conteiner z-20 h-20 w-full  bg-primary shadow-lg shadow-teal-800">
+    <div className="conteiner relative z-20 h-20 w-full  bg-primary shadow-lg shadow-teal-800">
       <div className=" j m-auto grid h-full max-w-7xl grid-cols-3 items-center">
-        <div className=" pl-8 text-center md:float-left lg:text-left">
+        <div className="order-2 col-span-2 text-left md:float-left lg:order-none lg:col-span-1 lg:pl-8">
           <Link href="/">
             <span className=" cursor-pointer text-3xl font-semibold text-white lg:text-4xl">
               Mimir Vatn
             </span>
           </Link>
         </div>
-        <div className=" h-16 justify-self-center">
+        <div className="hidden h-16 justify-self-center lg:block">
           <Link href="/">
             <div>
-              <Svgs name="logo_shadow" className="h-16 cursor-pointer" />
+              <Svgs name="logo_shadow" className="h-16 cursor-pointer " />
             </div>
           </Link>
         </div>
-        <div className=" h-9 justify-self-end pr-8">
+        <div className=" h-9 justify-self-center pr-8 lg:justify-self-end">
           {router.asPath === '/categories_page' ? (
             <button onClick={router.back}>
-              <Svgs name="fileOpen" className="h-9 cursor-pointer fill-white" />
+              <Svgs
+                name="fileOpen"
+                className="h-9 cursor-pointer fill-white  duration-300 hover:-mt-1 "
+              />
             </button>
           ) : (
             <Link href="/categories_page">
               <div>
                 <Svgs
                   name="fileClose"
-                  className="mr-2 h-9 cursor-pointer fill-white"
+                  className="mr-2 h-9 cursor-pointer fill-white duration-300 hover:-mt-1"
                 />
               </div>
             </Link>

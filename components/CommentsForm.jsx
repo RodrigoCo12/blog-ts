@@ -62,7 +62,7 @@ const CommentsForm = ({ slug }) => {
   }
 
   return (
-    <div className="lg:text-md mb-8 rounded-lg bg-white p-4 pb-12 text-sm shadow-lg lg:p-8">
+    <div className="lg:text-md  rounded-lg bg-white p-4 pb-12 text-sm shadow-lg lg:p-8">
       <h3 className="mb-4 border-b pb-4 text-xl font-bold lg:mb-8">
         Leave a Reply
       </h3>
@@ -110,7 +110,7 @@ const CommentsForm = ({ slug }) => {
       <div className="mt-4 lg:mt-8">
         <button
           type="button"
-          className="ease inline-block cursor-pointer rounded-full bg-pink-600 px-8 py-3 text-lg text-white transition duration-500 hover:bg-indigo-900 "
+          className="ease inline-block cursor-pointer rounded-full bg-primary  px-8 py-3 text-lg text-white transition duration-500 hover:-translate-y-1"
           onClick={handleCommentSubmission}
         >
           Post Comments

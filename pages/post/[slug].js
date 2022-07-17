@@ -20,7 +20,7 @@ const PostDetails = ({ post, paths }) => {
       <div className="mx-3 grid grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-12">
         <div className="col-span-1 lg:col-span-8">
           <PostDetail post={post} />
-          <Author author={post.author} />
+          {/* <Author author={post.author} /> */}
           <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} />
         </div>
