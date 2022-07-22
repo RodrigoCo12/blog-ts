@@ -1,7 +1,9 @@
 import moment from 'moment'
-import React from 'react'
-import Svgs from './Svgs'
 import Link from 'next/link'
+import React from 'react'
+
+import Svgs from './Svgs'
+
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
     let modifiedText = text
@@ -62,15 +64,15 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
-      <div className="my-8  rounded-lg bg-white pb-12 text-sm shadow-lg  shadow-teal-800 lg:p-8">
+      <div className="mb-8 bg-light_color pb-8 text-sm shadow-lg shadow-shadow_color ">
         <div className="relative mb-6 overflow-hidden shadow-md">
           <img
             src={post.featuredImage.url}
             alt=""
-            className="h-full w-full rounded-t-lg object-cover  object-top shadow-lg lg:rounded-lg"
+            className="h-full w-full rounded-b-lg object-cover  object-top shadow-lg "
           />
         </div>
-        <div className="px-4 lg:px-0">
+        <div className="px-4 lg:mx-5 lg:px-0">
           <div className="mb-8 flex w-full items-center">
             <div className="mr-8 flex items-center justify-center md:flex lg:mb-0 lg:w-auto">
               <img

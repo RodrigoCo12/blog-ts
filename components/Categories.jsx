@@ -1,8 +1,9 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-import Svgs from './Svgs'
+
 import { getCategories } from '../services'
+import Svgs from './Svgs'
 
 const Categories = () => {
   const [categories, setCategories] = useState([])
@@ -27,13 +28,13 @@ const Categories = () => {
           filter={undefined}
         />
       </div>
-      <div className="hidden w-full shadow-lg shadow-teal-800  lg:block">
-        <div className="   bg-primary p-4 text-white lg:p-5 lg:px-8">
+      <div className="hidden w-full shadow-lg shadow-shadow_color lg:block">
+        <div className="   bg-primary p-4 text-white lg:px-8">
           <h3 className=" text-center text-xl font-semibold lg:text-left ">
             Categories
           </h3>
         </div>
-        <div className="mb-8 w-full  bg-white p-4 py-2 text-gray-700 shadow-lg lg:px-8">
+        <div className="mb-8 w-full  bg-light_color p-4 py-2 text-gray-700 shadow-lg lg:px-8">
           {categories.map((category) =>
             router.asPath === `/categories/${category.slug}` ? (
               <span

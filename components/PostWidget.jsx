@@ -1,20 +1,12 @@
 import moment from 'moment'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import Svgs from './Svgs'
+
 import { getRecentPosts, getSimilarPosts } from '../services'
+import Svgs from './Svgs'
 
-const PostWidget = ({ categories, slug }) => {
-  const [relatedPost, setRelatedPost] = useState([])
-  useEffect(() => {
-    if (slug) {
-      getSimilarPosts(categories, slug).then((result) => setRelatedPost(result))
-    } else {
-      getRecentPosts().then((result) => setRelatedPost(result))
-    }
-  }, [slug])
-
-  // console.log(relatedPost);
+const PostWidget = ({ post, slug }) => {
+  const relatedPost = post
   return (
     <>
       <div className=" top-24 grid h-8 w-full grid-cols-2 px-4">
@@ -31,13 +23,13 @@ const PostWidget = ({ categories, slug }) => {
           filter={undefined}
         />
       </div>
-      <div className=" relative mb-10 w-full shadow-lg  shadow-teal-800 lg:mb-0">
-        <div className="   bg-primary p-4 text-white  shadow-lg lg:p-5 lg:px-8">
+      <div className="relative mb-5 w-full shadow-lg shadow-shadow_color   lg:mb-0">
+        <div className="   bg-primary p-4 text-white  shadow-lg lg:px-8">
           <h3 className=" text-center text-xl font-semibold lg:text-left ">
             {slug ? 'Releated Post' : 'Recent Post'}
           </h3>
         </div>
-        <div className="  bg-white p-4 py-2  text-gray-700 shadow-lg lg:px-8">
+        <div className="  bg-light_color p-4 py-1 text-gray-700 shadow-lg lg:px-8">
           {relatedPost.map((post) => (
             <div
               key={post.title}

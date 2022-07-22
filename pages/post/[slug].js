@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import {
   Author,
@@ -8,24 +8,27 @@ import {
   PostDetail,
   PostWidget,
 } from '../../components/index'
-import { getPostDetails, getPosts } from '../../services'
+import {
+  getPostDetails,
+  getSimilarPosts,
+  getRecentPosts,
+  getPosts,
+} from '../../services'
 
-const PostDetails = ({ post }) => {
+const PostDetails = ({ post, relatedPost }) => {
+  // console.log(relatedPost)
   return (
     <div className=" container mx-auto mb-4 max-w-screen-xl">
-      <div className="mx-3 grid grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-12">
-        <div className="col-span-1 lg:col-span-8">
+      <div className=" grid grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-12">
+        <div className="col-span-1 mt-8 lg:col-span-8">
           <PostDetail post={post} />
           {/* <Author author={post.author} /> */}
-          <CommentsForm slug={post.slug} />
+          {/* <CommentsForm slug={post.slug} /> */}
           <Comments slug={post.slug} />
         </div>
         <div className="col-span-1 lg:col-span-4">
           <div className=" relative  top-0 lg:sticky ">
-            <PostWidget
-              slug={post.slug}
-              categories={post.categories.map((category) => category.slug)}
-            />
+            <PostWidget post={relatedPost} slug={post.slug} />
             <Categories />
           </div>
         </div>
@@ -38,10 +41,18 @@ export default PostDetails
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug)
+  const categories = data.categories.map((category) => category.slug)
+  let relatedPost = []
+  if (data.slug) {
+    relatedPost = await getSimilarPosts(categories, data.slug)
+  } else {
+    relatedPost = await getSimilarPosts()
+  }
 
   return {
     props: {
       post: data,
+      relatedPost: relatedPost,
     },
   }
 }

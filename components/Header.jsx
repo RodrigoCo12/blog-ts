@@ -1,34 +1,85 @@
 import Link from 'next/link'
-import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import React, { useEffect, useRef, useState } from 'react'
+
 import { getCategories } from '../services'
 import Svgs from './Svgs'
+
 const Header = () => {
   const [categories, setCategories] = useState([])
+  const [title, setTitle] = useState()
   const router = useRouter()
+  const back = true
+
+  // const titulo = useRef()
+
   useEffect(() => {
     getCategories().then((newCategories) => setCategories(newCategories))
   }, [])
+
+  useEffect(() => {
+    if (router.asPath === '/categories_page') {
+      return setTitle('Categories')
+    }
+    categories.map((category) => {
+      if (router.asPath === '/categories/' + category.slug) {
+        return setTitle(category.name)
+      }
+    })
+    if (router.asPath === '/' || router.asPath.includes('/post/')) {
+      setTitle('Mimir Vatn')
+    }
+  })
+
+  const handleBack = () => {
+    if (back) {
+      back = false
+      return router.back()
+    }
+  }
   return (
-    <div className="conteiner relative z-20 h-20 w-full  bg-primary shadow-lg shadow-teal-800">
-      <div className=" j m-auto grid h-full max-w-7xl grid-cols-3 items-center">
-        <div className="order-2 col-span-2 text-left md:float-left lg:order-none lg:col-span-1 lg:pl-8">
+    <div className="conteiner relative z-20 h-20 w-full  bg-primary shadow-lg shadow-shadow_color  ">
+      <div className=" j m-auto grid h-full max-w-7xl grid-cols-5 items-center lg:grid-cols-3">
+        <div className=" col-span-1 hidden text-left md:float-left lg:order-none lg:block">
           <Link href="/">
-            <span className=" cursor-pointer text-3xl font-semibold text-white lg:text-4xl">
+            <span className=" cursor-pointer text-2xl font-semibold text-white lg:text-4xl">
               Mimir Vatn
             </span>
           </Link>
         </div>
-        <div className="hidden h-16 justify-self-center lg:block">
-          <Link href="/">
-            <div>
-              <Svgs name="logo_shadow" className="h-16 cursor-pointer " />
-            </div>
-          </Link>
+        <div className=" h-10 justify-self-center lg:hidden lg:justify-self-end">
+          {router.asPath !== '/' ? (
+            <button onClick={handleBack}>
+              <Svgs
+                name="back"
+                className="h-10 w-10 cursor-pointer fill-white  duration-300 hover:-mt-1 "
+              />
+            </button>
+          ) : (
+            ''
+          )}
         </div>
-        <div className=" h-9 justify-self-center pr-8 lg:justify-self-end">
+        <div className=" col-span-3 text-center md:float-left  lg:order-none lg:col-span-1 lg:hidden lg:pl-8">
+          <span className=" text-2xl font-semibold text-white lg:text-4xl">
+            {title}
+          </span>
+        </div>
+        {title === 'Mimir Vatn' ? (
+          <div className="hidden h-16 justify-self-center lg:block">
+            <Link href="/">
+              <div>
+                <Svgs name="logo_shadow" className="h-16 cursor-pointer " />
+              </div>
+            </Link>
+          </div>
+        ) : (
+          <div className=" col-span-3 hidden  text-center md:float-left lg:order-none lg:col-span-1 lg:block ">
+            <span className=" text-2xl font-semibold text-white">{title}</span>
+          </div>
+        )}
+        <div className=" h-9 justify-self-center lg:justify-self-end">
           {router.asPath === '/categories_page' ? (
-            <button onClick={router.back}>
+            <button onClick={handleBack}>
               <Svgs
                 name="fileOpen"
                 className="h-9 cursor-pointer fill-white  duration-300 hover:-mt-1 "

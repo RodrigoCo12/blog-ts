@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
 import { getComments } from '../services'
+import CommentsForm from './CommentsForm'
 
 const Comments = ({ slug }) => {
   const [comment, setComment] = useState([])
@@ -14,9 +15,10 @@ const Comments = ({ slug }) => {
   }, [router.asPath])
 
   return (
-    <>
+    <div className="shadow-lg shadow-shadow_color">
+      <CommentsForm slug={slug} />
       {comment.length > 0 && (
-        <div className=" relative -mt-7 rounded-lg bg-white  p-4 pb-12 lg:p-8 ">
+        <div className=" relative -mt-7  bg-light_color  p-4 pb-12 lg:p-8 ">
           <h3 className="mb-8 border-b pb-4 text-xl font-semibold">
             {comment.length} Comments
           </h3>
@@ -36,7 +38,7 @@ const Comments = ({ slug }) => {
           ))}
         </div>
       )}
-    </>
+    </div>
   )
 }
 
