@@ -1,18 +1,16 @@
-import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
 
 //////////////////////////////////////////////////////////
-import {
-  Categories,
-  PostCard,
-  PostWidget,
-  ThemeButton,
-} from '../../components/index'
-import Svgs from '../../components/Svgs'
+import { Categories, PostCard, PostWidget } from '../../components/index'
+import LogoButton from '../../components/LogoButton'
 import { getCategories, getCategory, getRecentPosts } from '../../services'
 
 const PostDetails = ({ category, recentPosts }) => {
-  // console.log(category)
+  const [logo, setLogo] = useState(0)
+  useEffect(() => {
+    setLogo(1)
+  }, [])
 
   return (
     <div className="  container mx-auto max-w-screen-xl">
@@ -48,14 +46,14 @@ const PostDetails = ({ category, recentPosts }) => {
             {/* in the future, I will change for typescript */}
             <PostWidget post={recentPosts} slug={false} />
             <Categories />
-            <div className="h-18 hidden justify-center lg:flex">
-              <Link href="/">
-                <div>
-                  <Svgs name="logo_shadow" className="h-18 cursor-pointer " />
-                </div>
-              </Link>
-            </div>
-            <ThemeButton />
+
+            {logo === 1 ? (
+              <div className="hidden h-20 justify-center lg:flex">
+                <LogoButton />
+              </div>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </div>

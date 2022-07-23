@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
-
+import Logo from './Animated/Logo'
 import { getCategories } from '../services'
 import Svgs from './Svgs'
-
+import LogoButton from './LogoButton'
 const Header = () => {
   const [categories, setCategories] = useState([])
   const [title, setTitle] = useState()
@@ -65,13 +65,7 @@ const Header = () => {
           </span>
         </div>
         {title === 'Mimir Vatn' ? (
-          <div className="hidden h-16 justify-self-center lg:block">
-            <Link href="/">
-              <div>
-                <Svgs name="logo_shadow" className="h-16 cursor-pointer " />
-              </div>
-            </Link>
-          </div>
+          <LogoButton />
         ) : (
           <div className=" col-span-3 hidden  text-center md:float-left lg:order-none lg:col-span-1 lg:block ">
             <span className=" text-2xl font-semibold text-white">{title}</span>

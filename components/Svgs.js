@@ -1,17 +1,57 @@
 const Svgs = ({ name, className, onClick, filter }) => {
   const svgs = {
     logo: (
-      <svg className={className} width="133" height="75" viewBox="0 0 133 75">
-        <ellipse cx="66" cy="60.5" rx="55" ry="14.5" fill="#0D98BA" />
-        <ellipse cx="50.5" cy="42" rx="50.5" ry="18" fill="#0D98BA" />
-        <ellipse cx="82.5" cy="42" rx="50.5" ry="18" fill="#0D98BA" />
-        <circle cx="66" cy="30" r="30" fill="white" />
-        <circle cx="67.0059" cy="30" r="16" fill="#6EA8FF" />
-        <circle cx="67.0059" cy="30" r="11" fill="black" />
-        <path
-          d="M64.0055 22.5C64.0055 26.6421 60.6477 30 56.5055 30C52.3634 30 50.8971 27.9881 51.0056 27.5C52.0056 23 54.0056 18.5 60.0055 15.5C60.1109 15.4473 64.0055 18.3579 64.0055 22.5Z"
-          fill="white"
-        />
+      <svg className={className} width="141" height="83" viewBox="0 0 141 83">
+        <g filter="url(#filter0_d_330_310)">
+          <ellipse
+            cx="70"
+            cy="60.5"
+            rx="55"
+            ry="14.5"
+            className=" fill-light-primary dark:fill-dark-primary"
+          />
+          <ellipse
+            cx="54.5"
+            cy="42"
+            rx="50.5"
+            ry="18"
+            className=" fill-light-primary dark:fill-dark-primary"
+          />
+          <ellipse
+            cx="86.5"
+            cy="42"
+            rx="50.5"
+            ry="18"
+            className=" fill-light-primary dark:fill-dark-primary"
+          />
+        </g>
+        <defs>
+          <filter
+            id="filter0_d_330_310"
+            x="0"
+            y="0"
+            width="141"
+            height="83"
+            filterUnits="userSpaceOnUse"
+            colorInterpolationFilters="sRGB"
+          >
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" type="matrix" result="hardAlpha" />
+            <feOffset dy="4" />
+            <feGaussianBlur stdDeviation="2" />
+            <feComposite in2="hardAlpha" operator="out" />
+            <feColorMatrix
+              type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"
+            />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="effect1_dropShadow_330_310"
+              result="shape"
+            />
+          </filter>
+        </defs>
       </svg>
     ),
     logo_shadow: (

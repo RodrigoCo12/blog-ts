@@ -1,14 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import {
-  PostCard,
-  PostWidget,
-  Categories,
-  ThemeButton,
-} from '../components/index'
+import { PostCard, PostWidget, Categories } from '../components/index'
 import { getPosts, getRecentPosts } from '../services'
 
 import { title } from 'process'
+import Svgs from '../components/Svgs'
 const Home: NextPage = ({ posts, recentPosts }: any) => {
   // console.log(posts)
   return (
@@ -30,7 +26,6 @@ const Home: NextPage = ({ posts, recentPosts }: any) => {
             {/* in the future, I will change for typescript */}
             <PostWidget post={recentPosts} slug={false} />
             <Categories />
-            <ThemeButton />
           </div>
         </div>
       </div>
