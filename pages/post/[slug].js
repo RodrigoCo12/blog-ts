@@ -7,6 +7,7 @@ import {
   CommentsForm,
   PostDetail,
   PostWidget,
+  ThemeButton,
 } from '../../components/index'
 import {
   getPostDetails,
@@ -30,6 +31,7 @@ const PostDetails = ({ post, relatedPost }) => {
           <div className=" relative  top-0 lg:sticky ">
             <PostWidget post={relatedPost} slug={post.slug} />
             <Categories />
+            <ThemeButton />
           </div>
         </div>
       </div>

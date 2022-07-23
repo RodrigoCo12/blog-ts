@@ -5,7 +5,7 @@ import Svgs from './Svgs'
 
 const Footer = () => {
   return (
-    <div className=" h-30 mt-14  w-full bg-primary lg:h-16">
+    <div className=" h-30 mt-14  w-full bg-light-primary dark:bg-dark-primary lg:h-16">
       <div className="mx-auto grid max-w-7xl grid-cols-5 items-center px-2 pt-10 lg:grid-cols-12 lg:pt-0 ">
         <div className="absolute col-span-5 mx-auto -mt-32 justify-self-center lg:hidden">
           <Svgs name="logo_shadow" />

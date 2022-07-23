@@ -64,7 +64,7 @@ const PostDetail = ({ post }) => {
 
   return (
     <>
-      <div className="mb-8 bg-light_color pb-8 text-sm shadow-lg shadow-shadow_color ">
+      <div className="mb-8 bg-light-light_color pb-8 text-sm shadow-lg shadow-light-shadow_color dark:bg-dark-light_color dark:shadow-dark-shadow_color ">
         <div className="relative mb-6 overflow-hidden shadow-md">
           <img
             src={post.featuredImage.url}
@@ -80,14 +80,14 @@ const PostDetail = ({ post }) => {
                 className="h-7 w-7 rounded-full align-middle"
                 src={post.author.photo.url}
               />
-              <p className="ml-2 inline align-middle text-lg font-medium text-gray-700">
+              <p className="ml-2 inline align-middle text-lg font-medium text-light-text_1 dark:text-dark-text_1 ">
                 {post.author.name}
               </p>
             </div>
-            <div className="font-medium text-gray-700">
+            <div className="font-medium text-light-text_3 dark:text-dark-text_3">
               <Svgs
                 name="calendar"
-                className="mr-2 inline h-7 w-7 text-primary"
+                className="mr-2 inline h-7 w-7 text-light-primary"
               />
               <span className="align-middle">
                 {moment(post.createdAt).format('MMM DD, YYYY')}
@@ -102,13 +102,13 @@ const PostDetail = ({ post }) => {
 
             return getContentFragment(index, children, typeObj, typeObj.type)
           })}
-          <div className=" text-md flex h-6 text-gray-700">
+          <div className=" text-md flex h-6 text-light-text_2 dark:text-dark-text_2">
             <Svgs name="tag" className="h-5" />
 
             {post.categories.map((category, index) =>
               index < 4 ? (
                 <Link key={index} href={`/categories/${category.slug}`}>
-                  <p className="transaition cursor-pointer duration-500 hover:text-primary">
+                  <p className="transaition cursor-pointer duration-200 hover:text-light-primary dark:hover:text-dark-primary">
                     {index === 0 ? '' : ', '}
                     {category.name}
                   </p>

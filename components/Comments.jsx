@@ -15,10 +15,10 @@ const Comments = ({ slug }) => {
   }, [router.asPath])
 
   return (
-    <div className="shadow-lg shadow-shadow_color">
+    <div className="shadow-lg shadow-light-shadow_color dark:shadow-dark-shadow_color">
       <CommentsForm slug={slug} />
       {comment.length > 0 && (
-        <div className=" relative -mt-7  bg-light_color  p-4 pb-12 lg:p-8 ">
+        <div className=" relative -mt-7 bg-light-light_color  p-4  pb-12 dark:bg-dark-light_color lg:p-8 ">
           <h3 className="mb-8 border-b pb-4 text-xl font-semibold">
             {comment.length} Comments
           </h3>
@@ -31,7 +31,7 @@ const Comments = ({ slug }) => {
                 <span className="font-semibold"> {comment.name}</span> on{' '}
                 {moment(comment.createdAt).format('DD MMM, YYYY')}
               </p>
-              <p className="w-full whitespace-pre-line text-gray-600">
+              <p className="w-full whitespace-pre-line text-light-text_2 dark:text-dark-text_2">
                 {parse(comment.comment)}
               </p>
             </div>

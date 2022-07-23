@@ -2,7 +2,12 @@ import Link from 'next/link'
 import React from 'react'
 
 //////////////////////////////////////////////////////////
-import { Categories, PostCard, PostWidget } from '../../components/index'
+import {
+  Categories,
+  PostCard,
+  PostWidget,
+  ThemeButton,
+} from '../../components/index'
 import Svgs from '../../components/Svgs'
 import { getCategories, getCategory, getRecentPosts } from '../../services'
 
@@ -18,22 +23,22 @@ const PostDetails = ({ category, recentPosts }) => {
               category.posts.length === 2 && index === 1 ? (
                 <>
                   <div key={post.title} className=" mt-5 h-auto lg:mt-0 ">
-                    <PostCard post={post} key={post.title} />
+                    <PostCard post={post} />
                   </div>
-                  <div key={post.title} className=" h-40 "></div>
+                  <div key={'re'} className=" h-40 "></div>
                 </>
               ) : (
                 <div key={post.title} className=" mt-5 h-auto lg:mt-0 ">
-                  <PostCard post={post} key={post.title} />
+                  <PostCard post={post} />
                 </div>
               )
             ) : (
               <>
                 <div key={post.title} className=" mt-5 h-auto lg:mt-0 ">
-                  <PostCard post={post} key={post.title} />
+                  <PostCard post={post} />
                 </div>
-                <div key={post.title} className=" mt-5 h-auto lg:mt-0 "></div>
-                <div key={post.title} className=" h-40"></div>
+                <div key={'v1'} className=" mt-5 h-auto lg:mt-0 "></div>
+                <div key={'v2'} className=" h-40"></div>
               </>
             )
           )}
@@ -43,16 +48,14 @@ const PostDetails = ({ category, recentPosts }) => {
             {/* in the future, I will change for typescript */}
             <PostWidget post={recentPosts} slug={false} />
             <Categories />
-            <div className="h-18 hidden lg:block">
+            <div className="h-18 hidden justify-center lg:flex">
               <Link href="/">
                 <div>
-                  <Svgs
-                    name="logo_shadow"
-                    className="h-18 mx-auto cursor-pointer "
-                  />
+                  <Svgs name="logo_shadow" className="h-18 cursor-pointer " />
                 </div>
               </Link>
             </div>
+            <ThemeButton />
           </div>
         </div>
       </div>

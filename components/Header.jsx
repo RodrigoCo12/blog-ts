@@ -38,7 +38,7 @@ const Header = () => {
     }
   }
   return (
-    <div className="conteiner relative z-20 h-20 w-full  bg-primary shadow-lg shadow-shadow_color  ">
+    <div className="conteiner relative z-20 h-20 w-full  bg-light-primary shadow-lg shadow-light-shadow_color dark:bg-dark-primary dark:shadow-dark-shadow_color  ">
       <div className=" j m-auto grid h-full max-w-7xl grid-cols-5 items-center lg:grid-cols-3">
         <div className=" col-span-1 hidden text-left md:float-left lg:order-none lg:block">
           <Link href="/">

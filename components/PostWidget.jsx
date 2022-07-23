@@ -23,13 +23,13 @@ const PostWidget = ({ post, slug }) => {
           filter={undefined}
         />
       </div>
-      <div className="relative mb-5 w-full shadow-lg shadow-shadow_color   lg:mb-0">
-        <div className="   bg-primary p-4 text-white  shadow-lg lg:px-8">
+      <div className="relative mb-5 w-full shadow-lg shadow-light-shadow_color dark:shadow-dark-shadow_color   lg:mb-0">
+        <div className="   bg-light-primary p-4 text-white shadow-lg  dark:bg-dark-primary lg:px-8">
           <h3 className=" text-center text-xl font-semibold lg:text-left ">
             {slug ? 'Releated Post' : 'Recent Post'}
           </h3>
         </div>
-        <div className="  bg-light_color p-4 py-1 text-gray-700 shadow-lg lg:px-8">
+        <div className="  bg-light-light_color p-4 py-1 text-light-text_2 shadow-lg dark:bg-dark-light_color dark:text-dark-text_2 lg:px-8">
           {relatedPost.map((post) => (
             <div
               key={post.title}
@@ -43,7 +43,7 @@ const PostWidget = ({ post, slug }) => {
                 />
               </div>
               <div className="ml-4 flex-grow">
-                <p className="font-xs text-gray-500">
+                <p className="font-xs text-light-text_3 dark:text-dark-text_3">
                   {moment(post.createdAt).format('DD MMM, YYYY')}
                 </p>
                 <Link
