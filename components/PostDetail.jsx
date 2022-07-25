@@ -87,7 +87,7 @@ const PostDetail = ({ post }) => {
             <div className="font-medium text-light-text_3 dark:text-dark-text_3">
               <Svgs
                 name="calendar"
-                className="mr-2 inline h-7 w-7 text-light-primary"
+                className="mr-2 inline h-7 w-7 text-light-primary dark:text-dark-primary"
               />
               <span className="align-middle">
                 {moment(post.createdAt).format('MMM DD, YYYY')}

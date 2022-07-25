@@ -57,9 +57,27 @@ const Svgs = ({ name, className, onClick, filter }) => {
     logo_shadow: (
       <svg className={className} width="141" height="83" viewBox="0 0 141 83">
         <g filter="url(#filter0_d_330_310)">
-          <ellipse cx="70" cy="60.5" rx="55" ry="14.5" fill="#0D98BA" />
-          <ellipse cx="54.5" cy="42" rx="50.5" ry="18" fill="#0D98BA" />
-          <ellipse cx="86.5" cy="42" rx="50.5" ry="18" fill="#0D98BA" />
+          <ellipse
+            cx="70"
+            cy="60.5"
+            rx="55"
+            ry="14.5"
+            className=" fill-light-primary dark:fill-dark-primary"
+          />
+          <ellipse
+            cx="54.5"
+            cy="42"
+            rx="50.5"
+            ry="18"
+            className=" fill-light-primary dark:fill-dark-primary"
+          />
+          <ellipse
+            cx="86.5"
+            cy="42"
+            rx="50.5"
+            ry="18"
+            className=" fill-light-primary dark:fill-dark-primary"
+          />
           <circle cx="70" cy="30" r="30" fill="white" />
           <circle cx="70.0059" cy="30" r="16" fill="#6EA8FF" />
           <circle cx="70.0059" cy="30" r="11" fill="black" />

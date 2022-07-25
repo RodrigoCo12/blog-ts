@@ -1,10 +1,12 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
-import Logo from './Animated/Logo'
+
 import { getCategories } from '../services'
-import Svgs from './Svgs'
+import Logo from './Animated/Logo'
 import LogoButton from './LogoButton'
+import Svgs from './Svgs'
+
 const Header = () => {
   const [categories, setCategories] = useState([])
   const [title, setTitle] = useState()
@@ -38,7 +40,7 @@ const Header = () => {
     }
   }
   return (
-    <div className="conteiner relative z-20 h-20 w-full  bg-light-primary shadow-lg shadow-light-shadow_color dark:bg-dark-primary dark:shadow-dark-shadow_color  ">
+    <div className="conteiner relative z-20 h-16 w-full bg-light-primary shadow-lg shadow-light-shadow_color dark:bg-dark-primary dark:shadow-dark-shadow_color lg:h-20  ">
       <div className=" j m-auto grid h-full max-w-7xl grid-cols-5 items-center lg:grid-cols-3">
         <div className=" col-span-1 hidden text-left md:float-left lg:order-none lg:block">
           <Link href="/">
@@ -60,7 +62,7 @@ const Header = () => {
           )}
         </div>
         <div className=" col-span-3 text-center md:float-left  lg:order-none lg:col-span-1 lg:hidden lg:pl-8">
-          <span className=" text-2xl font-semibold text-white lg:text-4xl">
+          <span className=" text-xl font-semibold text-white lg:text-4xl">
             {title}
           </span>
         </div>
