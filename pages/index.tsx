@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { PostCard, PostWidget, Categories } from '../components/index'
+
 import { getPosts, getRecentPosts } from '../services'
 
 import { title } from 'process'
@@ -9,6 +10,7 @@ const Home: NextPage = ({ posts, recentPosts }: any) => {
   // console.log(posts)
   return (
     <div className="container mx-auto mb-4 max-w-screen-xl text-white">
+
       <Head>
         <title>Blog</title>
         <link rel="icon" href="/favicon.ico" />
