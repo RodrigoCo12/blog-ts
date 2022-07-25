@@ -14,7 +14,7 @@ const Footer = () => {
           </div>
         </Link>
         <div className=" col-span-3 text-sm font-light text-white lg:col-span-10 lg:text-base ">
-          <p>Mimir Vant. Creator</p>
+          <p>Mim Blue. Creator</p>
           <p>Rodrigo Corrales Medrano</p>
         </div>
         <div className=" col-span-2 grid  h-16 items-center ">

@@ -29,7 +29,7 @@ const Header = () => {
       }
     })
     if (router.asPath === '/' || router.asPath.includes('/post/')) {
-      setTitle('Mimir Vatn')
+      setTitle('Mim Blue')
     }
   })
 
@@ -45,7 +45,7 @@ const Header = () => {
         <div className=" col-span-1 hidden text-left md:float-left lg:order-none lg:block">
           <Link href="/">
             <span className=" cursor-pointer text-2xl font-semibold text-white lg:text-4xl">
-              Mimir Vatn
+              Mim Blue
             </span>
           </Link>
         </div>
@@ -66,7 +66,7 @@ const Header = () => {
             {title}
           </span>
         </div>
-        {title === 'Mimir Vatn' ? (
+        {title === 'Mim Blue' ? (
           <LogoButton />
         ) : (
           <div className=" col-span-3 hidden  text-center md:float-left lg:order-none lg:col-span-1 lg:block ">
