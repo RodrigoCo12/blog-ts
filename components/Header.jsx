@@ -1,34 +1,102 @@
-import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
 
-import { getCategories } from '../services';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React, { useEffect, useRef, useState } from 'react'
+
+import { getCategories } from '../services'
+import Logo from './Animated/Logo'
+import LogoButton from './LogoButton'
+import Svgs from './Svgs'
 
 const Header = () => {
-    const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState([])
+  const [title, setTitle] = useState()
+  const router = useRouter()
+  const back = true
 
-    useEffect(() => {
-        getCategories().then((newCategories) => setCategories(newCategories));
-    }, []);
-    return (
-        <div className="conteiner mx-auto mb-8 px-10">
-            <div className="inline-block w-full border-b border-blue-400 py-8">
-                <div className="block md:float-left">
-                    <Link href="/">
-                        <span className="cursor-pointer text-4xl font-semibold text-white">GraphCMS</span>
-                    </Link>
-                </div>
-                <div className="hidden md:float-left md:contents">
-                    {categories.map((category) => (
-                        <Link key={category.slug} href={`/category/${category.slug}`}>
-                            <span className="aling-middle mt-2 ml-4 cursor-pointer font-semibold text-white md:float-right">
-                                {category.name}
-                            </span>
-                        </Link>
-                    ))}
-                </div>
-            </div>
+  // const titulo = useRef()
+
+  useEffect(() => {
+    getCategories().then((newCategories) => setCategories(newCategories))
+  }, [])
+
+  useEffect(() => {
+    if (router.asPath === '/categories_page') {
+      return setTitle('Categories')
+    }
+    categories.map((category) => {
+      if (router.asPath === '/categories/' + category.slug) {
+        return setTitle(category.name)
+      }
+    })
+    if (router.asPath === '/' || router.asPath.includes('/post/')) {
+      setTitle('Mim Blue')
+    }
+  })
+
+  const handleBack = () => {
+    if (back) {
+      back = false
+      return router.back()
+    }
+  }
+  return (
+    <div className="conteiner relative z-20 h-16 w-full bg-light-primary shadow-lg shadow-light-shadow_color dark:bg-dark-primary dark:shadow-dark-shadow_color lg:h-20  ">
+      <div className=" j m-auto grid h-full max-w-7xl grid-cols-5 items-center lg:grid-cols-3">
+        <div className=" col-span-1 hidden text-left md:float-left lg:order-none lg:block">
+          <Link href="/">
+            <span className=" cursor-pointer text-2xl font-semibold text-white lg:text-4xl">
+              Mim Blue
+            </span>
+          </Link>
         </div>
-    );
-};
+        <div className=" h-10 justify-self-center lg:hidden lg:justify-self-end">
+          {router.asPath !== '/' ? (
+            <button onClick={handleBack}>
+              <Svgs
+                name="back"
+                className="h-10 w-10 cursor-pointer fill-white  duration-300 hover:-mt-1 "
+              />
+            </button>
+          ) : (
+            ''
+          )}
+        </div>
+        <div className=" col-span-3 text-center md:float-left  lg:order-none lg:col-span-1 lg:hidden lg:pl-8">
+          <span className=" text-xl font-semibold text-white lg:text-4xl">
+            {title}
+          </span>
+        </div>
+        {title === 'Mim Blue' ? (
+          <LogoButton />
+        ) : (
+          <div className=" col-span-3 hidden  text-center md:float-left lg:order-none lg:col-span-1 lg:block ">
+            <span className=" text-2xl font-semibold text-white">{title}</span>
+          </div>
+        )}
+        <div className=" h-9 justify-self-center lg:justify-self-end">
+          {router.asPath === '/categories_page' ? (
+            <button onClick={handleBack}>
+              <Svgs
+                name="fileOpen"
+                className="h-9 cursor-pointer fill-white  duration-300 hover:-mt-1 "
+              />
+            </button>
+          ) : (
+            <Link href="/categories_page">
+              <div>
+                <Svgs
+                  name="fileClose"
+                  className="mr-2 h-9 cursor-pointer fill-white duration-300 hover:-mt-1"
+                />
+              </div>
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
 
-export default Header;
+export default Header
+
