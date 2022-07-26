@@ -1,4 +1,3 @@
-
 import { gql, request } from 'graphql-request'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
@@ -41,7 +40,6 @@ export const getPosts = async () => {
 
 export const getRecentPosts = async () => {
   const query = gql`
-=
         query GetPostDetails() {
         posts( orderBy : createdAt_ASC, last: 3)
         {
@@ -202,4 +200,3 @@ export const getComments = async (slug) => {
 
   return result.comments
 }
-
