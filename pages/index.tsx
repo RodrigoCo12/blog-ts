@@ -3,8 +3,6 @@ import Head from 'next/head'
 import { PostCard, PostWidget, Categories } from '../components/index'
 import { getPosts, getRecentPosts } from '../services'
 
-import { title } from 'process'
-import Svgs from '../components/Svgs'
 const Home: NextPage = ({ posts, recentPosts }: any) => {
   // console.log(posts)
   return (
