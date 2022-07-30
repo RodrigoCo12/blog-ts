@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-
+import Head from 'next/head'
 //////////////////////////////////////////////////////////
 import { Categories, PostCard, PostWidget } from '../../components/index'
 import LogoButton from '../../components/LogoButton'
@@ -14,6 +14,10 @@ const PostDetails = ({ category, recentPosts }) => {
 
   return (
     <div className="  container mx-auto max-w-screen-xl">
+      <Head>
+        <title>{category.name}</title>
+        <link rel="icon" href="/Logo.ico" />
+      </Head>
       <div className=" grid grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-12">
         <div className="order-2 col-span-1 grid grid-cols-1 lg:order-none lg:col-span-8 lg:mt-8 lg:grid-cols-2 lg:gap-8">
           {category.posts?.map((post, index) =>
