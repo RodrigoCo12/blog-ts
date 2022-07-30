@@ -8,6 +8,7 @@ import { getCategories, getCategory, getRecentPosts } from '../../services'
 
 const PostDetails = ({ category, recentPosts }) => {
   const [logo, setLogo] = useState(0)
+
   useEffect(() => {
     setLogo(1)
   }, [])
