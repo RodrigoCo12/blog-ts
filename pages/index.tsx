@@ -5,13 +5,12 @@ import { PostCard, PostWidget, Categories } from '../components/index'
 import { getPosts, getRecentPosts } from '../services'
 
 const Home: NextPage = ({ posts, recentPosts }: any) => {
-  // console.log(posts)
+  console.log(posts)
   return (
     <div className="container mx-auto mb-4 max-w-screen-xl text-white">
-
       <Head>
-        <title>Blog</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Mim Blue</title>
+        <link rel="icon" href="/Logo.ico" />
       </Head>
       <div className=" grid grid-cols-1 gap-2 lg:grid-cols-12 lg:gap-12 ">
         <div className="order-2 col-span-1 grid grid-cols-1 lg:order-none lg:col-span-8 lg:mt-8 lg:grid-cols-2 lg:gap-8">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import Head from 'next/head'
 import {
   Author,
   Categories,
@@ -7,12 +7,16 @@ import {
   PostDetail,
   PostWidget,
 } from '../../components/index'
-import { getPostDetails, getSimilarPosts, getPosts } from '../../services'
+import { getPostDetails, getPosts, getSimilarPosts } from '../../services'
 
 const PostDetails = ({ post, relatedPost }) => {
   // console.log(relatedPost)
   return (
     <div className=" container mx-auto mb-4 max-w-screen-xl">
+      <Head>
+        <title>{post.title}</title>
+        <link rel="icon" href="/Logo.ico" />
+      </Head>
       <div className=" grid grid-cols-1 gap-0 lg:grid-cols-12 lg:gap-12">
         <div className="col-span-1 mt-8 lg:col-span-8">
           <PostDetail post={post} />
