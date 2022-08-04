@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react'
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
+
 import { Category } from '../components/index'
 import { getCategories } from '../services'
-
+import { TCategoriesPage } from '../types'
 const CategoriesPage = () => {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState<TCategoriesPage[]>([])
 
   useEffect(() => {
     getCategories().then((newCategories) => setCategories(newCategories))
@@ -18,14 +19,14 @@ const CategoriesPage = () => {
         <link rel="icon" href="/Logo.ico" />
       </Head>
       <div className=" mt-8 grid grid-cols-1 gap-1 lg:grid-cols-12 lg:gap-8 ">
-        {categories.map((category) => (
+        {categories.map((category: TCategoriesPage) => (
           <div className="col-span-1  lg:col-span-4" key={category.name}>
-            <Category key={category.name} category={category} />
+            <Category category={category} />
           </div>
         ))}
       </div>
     </div>
   )
 }
-//
+
 export default CategoriesPage
