@@ -1,12 +1,16 @@
 import moment from 'moment'
-
 import Link from 'next/link'
 import React from 'react'
-
 import Svgs from './Svgs'
+import { TPostDetailsPage } from '../types'
 
-const PostDetail = ({ post }) => {
-  const getContentFragment = (index, text, obj, type) => {
+const PostDetail = ({ post }: { post: TPostDetailsPage }) => {
+  const getContentFragment = (
+    index: number,
+    text: any,
+    obj: any,
+    type: string
+  ) => {
     let modifiedText = text
     // console.log(obj)
     if (obj) {
@@ -27,7 +31,7 @@ const PostDetail = ({ post }) => {
       case 'heading-three':
         return (
           <h3 key={index} className="mb-4 text-xl font-semibold">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: number) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </h3>
@@ -35,7 +39,7 @@ const PostDetail = ({ post }) => {
       case 'paragraph':
         return (
           <p key={index} className="mb-8 text-justify lg:text-left">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: number) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </p>
@@ -43,7 +47,7 @@ const PostDetail = ({ post }) => {
       case 'heading-four':
         return (
           <h4 key={index} className=" mb-4 text-base font-semibold">
-            {modifiedText.map((item, i) => (
+            {modifiedText.map((item: any, i: number) => (
               <React.Fragment key={i}>{item}</React.Fragment>
             ))}
           </h4>
@@ -98,13 +102,16 @@ const PostDetail = ({ post }) => {
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
           {post.content.raw.children.map((typeObj, index) => {
             const children = typeObj.children.map((item, itemindex) =>
-              getContentFragment(itemindex, item.text, item)
+              getContentFragment(itemindex, item.text, item, '')
             )
 
             return getContentFragment(index, children, typeObj, typeObj.type)
           })}
           <div className=" text-md flex h-6 text-light-text_2 dark:text-dark-text_2">
-            <Svgs name="tag" className="h-5" />
+            <Svgs
+              name="tag"
+              className="h-5 fill-light-text_1 dark:fill-dark-text_1 "
+            />
 
             {post.categories.map((category, index) =>
               index < 4 ? (

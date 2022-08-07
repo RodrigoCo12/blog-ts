@@ -1,11 +1,13 @@
-import { TCategoryPage } from '../../types'
-import Head from 'next/head'
 import React, { useState } from 'react'
+import Head from 'next/head'
 import { useEffect } from 'react'
-
-//////////////////////////////////////////////////////////
-import { Categories, PostCard, PostWidget } from '../../components/index'
-import LogoButton from '../../components/LogoButton'
+import { TCategoryPage, TRecentOrRelatedPosts } from '../../types'
+import {
+  Categories,
+  PostCard,
+  PostWidget,
+  LogoButton,
+} from '../../components/index'
 import { getCategories, getCategory, getRecentPosts } from '../../services'
 
 const PostDetails = ({
@@ -13,7 +15,7 @@ const PostDetails = ({
   recentPosts,
 }: {
   category: TCategoryPage
-  recentPosts: any
+  recentPosts: TRecentOrRelatedPosts[]
 }) => {
   const [logo, setLogo] = useState(0)
   useEffect(() => {
@@ -57,7 +59,7 @@ const PostDetails = ({
         <div className="col-span-1 lg:col-span-4 ">
           <div className="relative top-0 hidden lg:sticky lg:block ">
             {/* in the future, I will change for typescript */}
-            <PostWidget post={recentPosts} slug={false} />
+            <PostWidget post={recentPosts} slug={''} />
             <Categories />
 
             {logo === 1 ? (

@@ -1,5 +1,5 @@
-const Svgs = ({ name, className, onClick, filter }) => {
-  const svgs = {
+const Svgs = ({ name, className }: { name: string; className: string }) => {
+  const svgs: any = {
     logo: (
       <svg className={className} width="141" height="83" viewBox="0 0 141 83">
         <g filter="url(#filter0_d_330_310)">

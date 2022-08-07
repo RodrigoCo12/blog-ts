@@ -1,8 +1,9 @@
 // import moment from 'moment'
 import Link from 'next/link'
 import React from 'react'
+import { TCategoriesPage } from '../types'
 
-const Category = ({ category }) => {
+const Category = ({ category }: { category: TCategoriesPage }) => {
   //   console.log(category)
   return (
     <Link key={category.slug} href={`/categories/${category.slug}`}>

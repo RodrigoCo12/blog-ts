@@ -1,12 +1,10 @@
 import moment from 'moment'
 import Link from 'next/link'
-
 import { useRouter } from 'next/router'
 import React from 'react'
-
 import Svgs from './Svgs'
-
-const PostCard = ({ post }) => {
+import { TIndexPagePosts } from '../types'
+const PostCard = ({ post }: { post: TIndexPagePosts['node']['post'] }) => {
   return (
     <div className="flex h-full flex-col gap-2 bg-light-light_color pb-3 shadow-lg shadow-light-shadow_color dark:bg-dark-light_color dark:shadow-dark-shadow_color ">
       <div className="relative  overflow-hidden pb-48 shadow-md  ">

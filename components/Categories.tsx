@@ -1,10 +1,9 @@
-
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
-
 import { getCategories } from '../services'
 import Svgs from './Svgs'
+import { TCategoriesPage } from '../types'
 
 const Categories = () => {
   const [categories, setCategories] = useState([])
@@ -16,18 +15,8 @@ const Categories = () => {
   return (
     <>
       <div className="top-24 hidden h-8 w-full grid-cols-2 px-4 lg:grid">
-        <Svgs
-          name="chain"
-          className=" h-8 justify-self-start"
-          onClick={undefined}
-          filter={undefined}
-        />
-        <Svgs
-          name="chain"
-          className=" h-8 justify-self-end"
-          onClick={undefined}
-          filter={undefined}
-        />
+        <Svgs name="chain" className=" h-8 justify-self-start" />
+        <Svgs name="chain" className=" h-8 justify-self-end" />
       </div>
       <div className="hidden w-full shadow-lg shadow-light-shadow_color dark:shadow-dark-shadow_color lg:block">
         <div className="   bg-light-primary p-4 text-white dark:bg-dark-primary lg:px-8">
@@ -36,7 +25,7 @@ const Categories = () => {
           </h3>
         </div>
         <div className="mb-8 w-full  bg-light-light_color p-4 py-2 text-light-text_2 shadow-lg dark:bg-dark-light_color dark:text-dark-text_2 lg:px-8">
-          {categories.map((category) =>
+          {categories.map((category: TCategoriesPage) =>
             router.asPath === `/categories/${category.slug}` ? (
               <span
                 key={category.slug}
@@ -59,4 +48,3 @@ const Categories = () => {
 }
 
 export default Categories
-

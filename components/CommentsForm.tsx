@@ -1,9 +1,8 @@
-
 import React, { useEffect, useRef, useState } from 'react'
 
 import { submitComment } from '../services'
 
-const CommentsForm = ({ slug }) => {
+const CommentsForm = ({ slug }: { slug: string }) => {
   //useState
 
   const [error, setError] = useState(false)
@@ -12,10 +11,14 @@ const CommentsForm = ({ slug }) => {
 
   //useRef
 
-  const commentEl = useRef()
-  const nameEl = useRef()
-  const emailEl = useRef()
-  const storeDataEl = useRef()
+  interface RefObject {
+    current: any
+  }
+
+  const commentEl = useRef<RefObject['current']>()
+  const nameEl = useRef<RefObject['current']>()
+  const emailEl = useRef<RefObject['current']>()
+  const storeDataEl = useRef<RefObject['current']>()
 
   //useEffect
 
@@ -50,8 +53,8 @@ const CommentsForm = ({ slug }) => {
       window.localStorage.setItem('name', name)
       window.localStorage.setItem('email', email)
     } else {
-      window.localStorage.removeItem('name', name)
-      window.localStorage.removeItem('email', email)
+      window.localStorage.removeItem('name')
+      window.localStorage.removeItem('email')
     }
 
     submitComment(commentObj).then((res) => {
@@ -127,4 +130,3 @@ const CommentsForm = ({ slug }) => {
 }
 
 export default CommentsForm
-

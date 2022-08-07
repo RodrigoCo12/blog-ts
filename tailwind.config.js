@@ -19,9 +19,10 @@ module.exports = {
           text_3: 'rgb(156 163 175)',
         },
         dark: {
-          primary: '#013356',
-          bg_color: '#001B26',
-          light_color: '#1F1F1F',
+          primary: 'rgba(13, 152, 186, 1)',
+          // primary: '#013356',
+          bg_color: '#0E2839',
+          light_color: '#0C161E',
           shadow_color: '#000F15',
           text_1: '#ffff',
           text_2: 'rgb(229 231 235)',

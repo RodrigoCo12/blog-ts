@@ -5,11 +5,14 @@ import useMightyMouse from 'react-hook-mighty-mouse'
 import styles from './styles.module.scss'
 
 const Logo = () => {
-  const [tiredness, setTiredness] = useState(0)
+  const [tiredness, setTiredness] = useState<number>(0)
 
   let {
     positionRelative: { angle: angleLeftEye, x: x, y: y },
-  } = useMightyMouse(true, 'left-eye', { x: 45, y: 45 })
+  }: { positionRelative: any } = useMightyMouse(true, 'left-eye', {
+    x: 45,
+    y: 45,
+  })
 
   const hiddenEye = x < 25 && x > -25 && y < 25 && y > -25
 

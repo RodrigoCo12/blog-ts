@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import React from 'react'
-
-import { Header } from './'
 import Svgs from './Svgs'
 
 const Footer = () => {
@@ -10,7 +8,7 @@ const Footer = () => {
       <div className="mx-auto grid max-w-7xl grid-cols-5 items-center px-2 pt-10 lg:grid-cols-12 lg:pt-0 ">
         <Link href={'/'}>
           <div className="absolute col-span-5 mx-auto -mt-32 justify-self-center lg:hidden">
-            <Svgs name="logo_shadow" />
+            <Svgs name="logo_shadow" className="" />
           </div>
         </Link>
         <div className=" col-span-3 text-sm font-light text-white lg:col-span-10 lg:text-base ">

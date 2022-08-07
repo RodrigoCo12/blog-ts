@@ -1,4 +1,3 @@
-
 import parse from 'html-react-parser'
 import moment from 'moment'
 import { useRouter } from 'next/router'
@@ -6,9 +5,10 @@ import React, { useEffect, useState } from 'react'
 
 import { getComments } from '../services'
 import CommentsForm from './CommentsForm'
+import { TComment } from '../types'
 
-const Comments = ({ slug }) => {
-  const [comment, setComment] = useState([])
+const Comments = ({ slug }: { slug: string }) => {
+  const [comment, setComment] = useState<TComment[]>([])
   const router = useRouter()
 
   useEffect(() => {
@@ -44,4 +44,3 @@ const Comments = ({ slug }) => {
 }
 
 export default Comments
-
