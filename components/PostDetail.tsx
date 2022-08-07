@@ -69,7 +69,7 @@ const PostDetail = ({ post }: { post: TPostDetailsPage }) => {
 
   return (
     <>
-      <div className="mb-8 bg-light-light_color pb-8 text-sm shadow-lg shadow-light-shadow_color dark:bg-dark-light_color dark:shadow-dark-shadow_color ">
+      <div className="mb-8 bg-light-light_color pb-8 text-sm shadow-lg shadow-light-shadow_color dark:bg-dark-light_color dark:shadow-dark-shadow_color lg:text-base ">
         <div className="relative mb-6 overflow-hidden shadow-md">
           <img
             src={post.featuredImage.url}

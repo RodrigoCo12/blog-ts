@@ -5,13 +5,8 @@ import { getCategories } from '../services'
 import Svgs from './Svgs'
 import { TCategoriesPage } from '../types'
 
-const Categories = () => {
-  const [categories, setCategories] = useState([])
+const Categories = ({ categories }: { categories: TCategoriesPage[] }) => {
   const router = useRouter()
-  useEffect(() => {
-    getCategories().then((newCategories) => setCategories(newCategories))
-  }, [])
-
   return (
     <>
       <div className="top-24 hidden h-8 w-full grid-cols-2 px-4 lg:grid">

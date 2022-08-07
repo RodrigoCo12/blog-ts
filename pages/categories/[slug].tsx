@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
-import { useEffect } from 'react'
 import { TCategoryPage, TRecentOrRelatedPosts } from '../../types'
 import {
   Categories,
@@ -13,15 +12,12 @@ import { getCategories, getCategory, getRecentPosts } from '../../services'
 const PostDetails = ({
   category,
   recentPosts,
+  categories,
 }: {
   category: TCategoryPage
   recentPosts: TRecentOrRelatedPosts[]
+  categories: TCategoryPage[]
 }) => {
-  const [logo, setLogo] = useState(0)
-  useEffect(() => {
-    setLogo(1)
-  }, [])
-  // console.log(category)
   return (
     <div className="  container mx-auto max-w-screen-xl">
       <Head>
@@ -38,7 +34,7 @@ const PostDetails = ({
                     <div key={post.title} className=" mt-5 h-auto lg:mt-0 ">
                       <PostCard post={post} />
                     </div>
-                    <div key={'re'} className=" h-40 "></div>
+                    <div key={'re'} className="hidden  h-40 lg:block "></div>
                   </>
                 ) : (
                   <div key={post.title} className=" mt-5 h-auto lg:mt-0 ">
@@ -50,25 +46,23 @@ const PostDetails = ({
                   <div key={post.title} className=" mt-5 h-auto lg:mt-0 ">
                     <PostCard post={post} />
                   </div>
-                  <div key={'v1'} className=" mt-5 h-auto lg:mt-0 "></div>
-                  <div key={'v2'} className=" h-40"></div>
+                  <div
+                    key={'v1'}
+                    className="mt-5 hidden h-auto lg:mt-0 lg:block "
+                  ></div>
+                  <div key={'v2'} className=" hiddenh h-40 lg:block"></div>
                 </>
               )
           )}
         </div>
         <div className="col-span-1 lg:col-span-4 ">
           <div className="relative top-0 hidden lg:sticky lg:block ">
-            {/* in the future, I will change for typescript */}
             <PostWidget post={recentPosts} slug={''} />
-            <Categories />
+            <Categories categories={categories} />
 
-            {logo === 1 ? (
-              <div className="hidden h-20 justify-center lg:flex">
-                <LogoButton />
-              </div>
-            ) : (
-              ''
-            )}
+            <div className="hidden h-20 justify-center lg:flex">
+              <LogoButton />
+            </div>
           </div>
         </div>
       </div>
@@ -81,10 +75,12 @@ export default PostDetails
 export async function getStaticProps({ params }: { params: any }) {
   const data = await getCategory(params.slug)
   const recentPosts = await getRecentPosts()
+  const categories = await getCategories()
   return {
     props: {
       category: data,
-      recentPosts: recentPosts,
+      recentPosts,
+      categories,
     },
   }
 }

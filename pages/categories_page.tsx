@@ -1,15 +1,14 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
-
+// import { useEffect, useState } from 'react'
 import { Category } from '../components/index'
 import { getCategories } from '../services'
 import { TCategoriesPage } from '../types'
-const CategoriesPage = () => {
-  const [categories, setCategories] = useState<TCategoriesPage[]>([])
+const CategoriesPage = ({ categories }: { categories: TCategoriesPage[] }) => {
+  // const [categories, setCategories] = useState<TCategoriesPage[]>([])
 
-  useEffect(() => {
-    getCategories().then((newCategories) => setCategories(newCategories))
-  }, [])
+  // useEffect(() => {
+  //   getCategories().then((newCategories) => setCategories(newCategories))
+  // }, [])
   // console.log(categories)
 
   return (
@@ -27,6 +26,10 @@ const CategoriesPage = () => {
       </div>
     </div>
   )
+}
+export async function getStaticProps() {
+  const categories = await getCategories()
+  return { props: { categories } }
 }
 
 export default CategoriesPage

@@ -7,9 +7,9 @@ import {
   LogoButton,
 } from '../components/index'
 
-import { getPosts, getRecentPosts } from '../services'
+import { getPosts, getRecentPosts, getCategories } from '../services'
 
-const Home: NextPage = ({ posts, recentPosts }: any) => {
+const Home: NextPage = ({ posts, recentPosts, categories }: any) => {
   return (
     <div className="container mx-auto mb-4 max-w-screen-xl text-white">
       <Head>
@@ -27,7 +27,7 @@ const Home: NextPage = ({ posts, recentPosts }: any) => {
         <div className="order-1 col-span-1 lg:order-none lg:col-span-4 ">
           <div className="relative top-0 lg:sticky ">
             <PostWidget post={recentPosts} slug={''} />
-            <Categories />
+            <Categories categories={categories} />
             <div className="hidden h-20 justify-center lg:flex">
               <LogoButton />
             </div>
@@ -43,10 +43,12 @@ export default Home
 export async function getStaticProps() {
   const posts = (await getPosts()) || []
   const recentPosts = await getRecentPosts()
+  const categories = await getCategories()
   return {
     props: {
       posts,
-      recentPosts: recentPosts,
+      recentPosts,
+      categories,
     },
   }
 }

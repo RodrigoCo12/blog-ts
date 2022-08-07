@@ -6,7 +6,7 @@ import Svgs from './Svgs'
 import { TIndexPagePosts } from '../types'
 const PostCard = ({ post }: { post: TIndexPagePosts['node']['post'] }) => {
   return (
-    <div className="flex h-full flex-col gap-2 bg-light-light_color pb-3 shadow-lg shadow-light-shadow_color dark:bg-dark-light_color dark:shadow-dark-shadow_color ">
+    <div className="flex h-full flex-col gap-2 bg-light-light_color pb-3 shadow-sm shadow-light-shadow_color dark:bg-dark-light_color dark:shadow-dark-shadow_color lg:shadow-lg ">
       <div className="relative  overflow-hidden pb-48 shadow-md  ">
         <img
           src={post.featuredImage.url}

@@ -4,6 +4,7 @@ import {
   TPostDetailsPage,
   TIndexPagePosts,
   TRecentOrRelatedPosts,
+  TCategoriesPage,
 } from '../../types'
 import {
   Categories,
@@ -12,14 +13,21 @@ import {
   PostWidget,
   LogoButton,
 } from '../../components/index'
-import { getPostDetails, getPosts, getSimilarPosts } from '../../services'
+import {
+  getCategories,
+  getPostDetails,
+  getPosts,
+  getSimilarPosts,
+} from '../../services'
 
 const PostDetails = ({
   post,
   relatedPost,
+  allCategories,
 }: {
   post: TPostDetailsPage
   relatedPost: TRecentOrRelatedPosts[]
+  allCategories: TCategoriesPage[]
 }) => {
   return (
     <div className=" container mx-auto mb-4 max-w-screen-xl">
@@ -35,7 +43,7 @@ const PostDetails = ({
         <div className="col-span-1 lg:col-span-4">
           <div className=" relative  top-0 lg:sticky ">
             <PostWidget post={relatedPost} slug={post.slug} />
-            <Categories />
+            <Categories categories={allCategories} />
             <div className="hidden h-20 justify-center lg:flex">
               <LogoButton />
             </div>
@@ -51,17 +59,18 @@ export default PostDetails
 export async function getStaticProps({ params }: { params: { slug: string } }) {
   const data = await getPostDetails(params.slug)
   const categories = data.categories.map((category: any) => category.slug)
+  const allCategories = await getCategories()
   let relatedPost = []
   if (data.slug) {
     relatedPost = await getSimilarPosts(categories, data.slug)
   } else {
     relatedPost = await getSimilarPosts()
   }
-
   return {
     props: {
       post: data,
-      relatedPost: relatedPost,
+      relatedPost,
+      allCategories,
     },
   }
 }
