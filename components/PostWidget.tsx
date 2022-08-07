@@ -1,28 +1,21 @@
-
 import moment from 'moment'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-
-import { getRecentPosts, getSimilarPosts } from '../services'
 import Svgs from './Svgs'
-
-const PostWidget = ({ post, slug }) => {
+import { TRecentOrRelatedPosts } from '../types'
+const PostWidget = ({
+  post,
+  slug,
+}: {
+  post: TRecentOrRelatedPosts[]
+  slug: string
+}) => {
   const relatedPost = post
   return (
     <>
       <div className=" top-24 grid h-8 w-full grid-cols-2 px-4">
-        <Svgs
-          name="chain"
-          className=" h-8 justify-self-start"
-          onClick={undefined}
-          filter={undefined}
-        />
-        <Svgs
-          name="chain"
-          className=" h-8 justify-self-end"
-          onClick={undefined}
-          filter={undefined}
-        />
+        <Svgs name="chain" className=" h-8 justify-self-start" />
+        <Svgs name="chain" className=" h-8 justify-self-end" />
       </div>
       <div className="relative mb-5 w-full shadow-lg shadow-light-shadow_color dark:shadow-dark-shadow_color   lg:mb-0">
         <div className="   bg-light-primary p-4 text-white shadow-lg  dark:bg-dark-primary lg:px-8">
@@ -31,7 +24,7 @@ const PostWidget = ({ post, slug }) => {
           </h3>
         </div>
         <div className="  bg-light-light_color p-4 py-1 text-light-text_2 shadow-lg dark:bg-dark-light_color dark:text-dark-text_2 lg:px-8">
-          {relatedPost.map((post) => (
+          {relatedPost.map((post: TRecentOrRelatedPosts) => (
             <div
               key={post.title}
               className="mb-2 mt-3 flex w-full items-center lg:mt-5 lg:mb-4"
@@ -47,11 +40,7 @@ const PostWidget = ({ post, slug }) => {
                 <p className="font-xs text-light-text_3 dark:text-dark-text_3">
                   {moment(post.createdAt).format('DD MMM, YYYY')}
                 </p>
-                <Link
-                  href={`/post/${post.slug}`}
-                  className="text-md "
-                  key={post.title}
-                >
+                <Link href={`/post/${post.slug}`} key={post.title}>
                   {post.title}
                 </Link>
               </div>

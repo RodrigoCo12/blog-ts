@@ -1,18 +1,17 @@
-
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useRef, useState } from 'react'
-
 import { getCategories } from '../services'
-import Logo from './Animated/Logo'
 import LogoButton from './LogoButton'
 import Svgs from './Svgs'
+import { TCategoriesPage } from '../types'
 
 const Header = () => {
-  const [categories, setCategories] = useState([])
-  const [title, setTitle] = useState()
+  const [categories, setCategories] = useState<TCategoriesPage[]>([])
+  const [title, setTitle] = useState('')
+
   const router = useRouter()
-  const back = true
+  let back = true
 
   // const titulo = useRef()
 
@@ -68,7 +67,7 @@ const Header = () => {
           </span>
         </div>
         {title === 'Mim Blue' ? (
-          <LogoButton />
+          <div className="hidden lg:block"></div>
         ) : (
           <div className=" col-span-3 hidden  text-center md:float-left lg:order-none lg:col-span-1 lg:block ">
             <span className=" text-2xl font-semibold text-white">{title}</span>
@@ -99,4 +98,3 @@ const Header = () => {
 }
 
 export default Header
-
